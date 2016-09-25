@@ -7,21 +7,21 @@
       </div>      
     </div>
   </ion-nav-title>
-  <ion-content class="padding">
+  <ion-content class="padding" overflow-scroll="true">
 
-    <h2>핸드폰 사용시간 순위</h2>
+    <center>
+      <h4>핸드폰 사용시간 순위</h4>
+    </center>
 
-    <!--<div class="list card" ng-repeat="rank in rankList">-->
-    <div ng-repeat="rank in rankList">
+    <div class="list card" ng-repeat="rank in rankList">
 
-      {{rank}}
-      <!--<div class="item item-avatar2 item-icon-right card-content">
-        <img ng-src="{{ rank.member.profileImageUrl }}">
+      <div class="item item-avatar2 item-icon-right card-content">
+        <img ng-src="{{ rank.profile_image_url }}">
         <div class="card-info">
-          <h2>{{$index+1}}위</h2> <br>
-          <p>닉네임 : {{ rank.member.nickName }}</p>
-          <p>나이 : {{ rank.member.age }}</p>
-          <p>평점 : {{ rank.score | number:1}}</p>
+          <h2>{{$index+1}}위</h2>
+          <p>닉네임 : {{ rank.nick_name }}</p>
+          <p>나이 : {{ rank.age }}</p>
+          <p>총 사용시간 : {{ rank.day | number:1}}시간</p>
           <a ng-click="details = !details">
             <i class="icon ion-ios-arrow-down"></i>
           </a>
@@ -29,13 +29,13 @@
       </div>
 
       <div class="item item-image" ng-show="details">
-        <img ng-src="{{ rank.member.profileImageUrl }}">
+        <img ng-src="{{ rank.profile_image_url }}">
       </div>
 
-      <button class="item item-icon-left positive button-block" ng-disabled="!isOppositeGender(rank.member.gender)" ng-click="loginCheck(rank.member.id)">
+      <div class="item item-icon-left positive button-block">
         <i class="icon ion-ios-chatbubble"></i>
         <center>오픈채팅</center>
-      </button>-->
+      </div>
 
     </div>
 
