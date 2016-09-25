@@ -1,15 +1,21 @@
 <ion-view view-title="Rank">
-  <ion-content class="padding">
-
-    <div class="button-bar bar-positive">
-      <a class="button" ng-class="{'active' : period.text === data.period}" ng-click="data.period = period.text; getRank(period.value)" ng-repeat="period in periodList">{{period.text}}</a>
+  <ion-nav-title>
+    <div class="title-bar">
+      <div class="button-bar period-bar">
+        <a class="button button-outline button-positive" ng-class="{'active' : period.text === data.period}" ng-click="data.period = period.text; getRank(period.value)"
+          ng-repeat="period in periodList">{{period.text}}</a>
+      </div>      
     </div>
+  </ion-nav-title>
+  <ion-content class="padding">
 
     <h2>핸드폰 사용시간 순위</h2>
 
-    <div class="list card" ng-repeat="rank in rankList">
+    <!--<div class="list card" ng-repeat="rank in rankList">-->
+    <div ng-repeat="rank in rankList">
 
-      <div class="item item-avatar2 item-icon-right card-content">
+      {{rank}}
+      <!--<div class="item item-avatar2 item-icon-right card-content">
         <img ng-src="{{ rank.member.profileImageUrl }}">
         <div class="card-info">
           <h2>{{$index+1}}위</h2> <br>
@@ -29,9 +35,9 @@
       <button class="item item-icon-left positive button-block" ng-disabled="!isOppositeGender(rank.member.gender)" ng-click="loginCheck(rank.member.id)">
         <i class="icon ion-ios-chatbubble"></i>
         <center>오픈채팅</center>
-      </button>
+      </button>-->
 
     </div>
-    
+
   </ion-content>
 </ion-view>

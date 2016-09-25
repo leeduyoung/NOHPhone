@@ -1,4 +1,5 @@
 angular.module('starter')
+
     .factory('UrlsFactory', function(){
 
         /* device 용 */
@@ -9,10 +10,11 @@ angular.module('starter')
         var host = '';
 
         var urls = {
-            
+            // rank-conroller
+            get_oneday_rank: host + '/common/oneday',
+            get_oneweek_rank: host + '/common/oneweek',
+            get_total_rank: host + '/common/total'
         }
 
-        return {
-            urls
-        }
+        return urls;
     });
