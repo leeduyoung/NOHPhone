@@ -32,14 +32,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $stateProvider
 
       // setup an abstract state for the tabs directive
-      .state('tab', {
-        url: '/tab',
+      .state('app', {
+        url: '/app',
         abstract: true,
-        templateUrl: 'templates/tabs.html'
+        templateUrl: 'templates/tab/tabs.html'
       })
 
       // Each tab has its own nav history stack:
-      .state('tab.rank', {
+      .state('app.rank', {
         url: '/rank',
         views: {
           'tab-rank': {
@@ -49,7 +49,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('tab.profile', {
+      //로그인
+      .state('login', {
+        url: '/login',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/account/login.html'
+          }
+        }
+      })
+
+      //회원가입
+      .state('signUp', {
+        url: '/signup',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/account/signup.html',
+            controller: 'SignUpCtrl'
+          }
+        }
+      })
+
+      .state('app.profile', {
         url: '/profile',
         views: {
           'tab-profile': {
@@ -59,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('tab.chats', {
+      .state('app.chats', {
         url: '/chats',
         views: {
           'tab-chats': {
@@ -68,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
-      .state('tab.chat-detail', {
+      .state('app.chat-detail', {
         url: '/chats/:chatId',
         views: {
           'tab-chats': {
@@ -78,7 +99,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('tab.account', {
+      .state('app.account', {
         url: '/account',
         views: {
           'tab-account': {
@@ -89,6 +110,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/rank');
+    $urlRouterProvider.otherwise('/app/rank');
 
   });

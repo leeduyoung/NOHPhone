@@ -3,8 +3,8 @@
   "app_id": "",
   "proxies": [
     {
-      "path": "/member",
-      "proxyUrl": "http://192.168.0.8:3000/member"
+      "path": "/users",
+      "proxyUrl": "http://192.168.0.8:3000/users"
     },
     {
       "path": "/common",

@@ -10,10 +10,14 @@ angular.module('starter')
         var host = '';
 
         var urls = {
-            // rank-conroller
+            // rank page에서 필요한 정보 조회
             get_oneday_rank: host + '/common/oneday',
             get_oneweek_rank: host + '/common/oneweek',
-            get_total_rank: host + '/common/total'
+            get_total_rank: host + '/common/total',
+
+            // profile page에서 필요한 정보 조회
+            get_profile: host + '/users/profile'
+
         }
 
         return urls;
