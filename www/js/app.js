@@ -80,6 +80,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
+      .state('app.report', {
+        url: '/report',
+        views: {
+          'tab-report': {
+            templateUrl: 'templates/tab/tab-report.html',
+            controller: 'ReportCtrl'
+          }
+        }
+      })
+
       .state('app.chats', {
         url: '/chats',
         views: {

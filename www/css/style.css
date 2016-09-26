@@ -34,3 +34,19 @@
 .card-info {
     padding-left: 7rem;
 }
+
+/* report-css */
+.myscore #circle_img{
+    margin-top: 20px;
+    width: 30vw;
+    height: auto;
+    border-radius: 50%;
+}
+
+.myscore-item {
+    background: #5c7fbd;
+    border-radius : 5%;
+    margin: 2px;
+    color: white;
+    padding: 10px;
+}

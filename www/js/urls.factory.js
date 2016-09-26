@@ -16,7 +16,8 @@ angular.module('starter')
             get_total_rank: host + '/common/total',
 
             // profile page에서 필요한 정보 조회
-            get_profile: host + '/users/profile'
+            get_profile: host + '/users/profile',
+            get_report: host + '/users/report'
 
         }
 

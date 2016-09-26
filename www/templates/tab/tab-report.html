@@ -1,0 +1,58 @@
+<ion-view>
+
+  <ion-nav-title>
+    <div class="nav-title">사용현황</div>
+  </ion-nav-title>
+
+  <ion-content class="text-center">
+
+    <!--프로필 서클 이미지-->
+    <p class="myscore">
+      <img id="circle_img" ng-src="{{myProfile.profile_image_url}}">
+    </p>
+
+    <div class="container">
+
+      <!-- 핸드폰 사용시간 초기화(버튼) // 나중에 -->
+
+      <!--백분율 정보-->
+      <div class="h4">
+        나의 평균 사용시간 {{3.2}}시간
+      </div>
+      <br>
+
+      <!--내점수 표시-->
+      <div>
+        <span class="myscore-result"> 당신은 회원 {{100}}명중 {{3}}번째로 많이 사용합니다! </span>
+      </div>
+      <br>
+
+      <!--내 핸드폰 사용시간-->
+      <div>
+        <div class="row">
+          <span class="col text-center myscore-item"> 
+            <div class="h6">오늘 핸드폰 사용시간</div>
+            <div>{{myReport.day | number:2}}시간</div>
+            </span>
+          <span class="col text-center myscore-item">
+             <div class="h6">이번주 핸드폰 사용시간</div>
+             <div> {{myReport.week | number:2}}시간 </div>
+             </span>
+          <span class="col text-center myscore-item"> 
+            <div class="h6">총 핸드폰 사용시간</div>
+            <div> {{myReport.total | number:2}}시간 </div>
+            </span>
+        </div>
+      </div>
+      <br>
+
+    </div>
+
+    <!--점수 코멘트-->
+    <div class="text-center h4">
+      {{10}}
+    </div>
+    <br>
+
+  </ion-content>
+</ion-view>
