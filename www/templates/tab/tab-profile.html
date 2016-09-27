@@ -1,12 +1,87 @@
 <ion-view>
 
   <ion-nav-title>
-    <div class="nav-title">프로필</div>
+    <div class="title-bar">
+      <div class="button-bar period-bar">
+        <a class="button button-outline button-positive" ng-class="{'active' : profile.text === data.profile}" ng-click="data.profile = profile.text; getProfile(profile.value)"
+          ng-repeat="profile in profileSetting">{{profile.text}}</a>
+      </div>
+    </div>
   </ion-nav-title>
 
-  <ion-content class="text-center">
+  <ion-content scroll="false">
 
-    {{myProfile}}
+    <!--{{myProfileInfo}}-->
+    <div ng-show="data.profile === '내정보'">
+      <ion-content overflow-scroll="true">
+
+        <!--<p class="item item-image">
+          <img ng-src="{{myProfileInfo.profile_image_url}}">
+        </p>-->
+
+        <!--프로필 서클 이미지-->
+        <p class="profile text-center">
+          <img id="circle_img" ng-src="{{myProfileInfo.profile_image_url}}">
+        </p>
+
+        <div id="img-button" class="profile_contents">
+          <button class="button button-block button-positive" id="img-button" ng-click="getImageFromGallery()">사진 변경</button>
+        </div>
+
+        <br>
+        <div class="list">
+          <p class="h4 text-muted profile_contents">
+            내 정보
+          </p>
+          <form name="profile_form" ng-submit="editProfile()">
+            <div>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">아이디</span>
+                <input type="text" placeholder="id" ng-model="myProfileInfo.id" ng-required="true" disabled="disabled" >
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">닉네임</span>
+                <input type="text" name="nickname" placeholder="nickname" ng-model="myProfileInfo.nickName" 
+                ng-required="true"
+                ng-minlength="2">
+              </label>
+              <label class="item">
+                    <button class="profile-change button button-block button-positive" ng-disabled="profile_form.nickname.$invalid || !changeCheck()" type="submit">변경하기</button>
+                  </label>
+              <br>
+            </div>
+          </form>
+        </div>
+
+      </ion-content>
+    </div>
+
+    <div ng-show="data.profile === '비밀번호 변경'">
+      <ion-content overflow-scroll="true">
+
+        <form name="change" ng-submit="changePassword()">
+          <div>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">기존비밀번호</span>
+              <input type="password" placeholder="기존 비밀번호를 입력해주세요." ng-model="myProfileInfo.oldPassword" ng-required="true" ng-minlength="8">
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">새로운 비밀번호</span>
+              <input type="password" placeholder="새로운 비밀번호를 입력해주세요. (8자리 이상)" ng-model="myProfileInfo.newPassword" ng-required="true" ng-minlength="8">
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">새로운 비밀번호</span>
+              <input type="password" placeholder="새로운 비밀번호를 한번 더 입력해주세요." ng-model="myProfileInfo.confirm" ng-required="true" ng-minlength="8">
+            </label>
+            <div class="item">
+              <button class="button button-block button-positive" ng-disabled="myProfileInfo.newPassword != myProfileInfo.confirm || change.$invalid"
+                type="submit">변경하기</button>
+            </div>
+          </div>
+        </form>
+
+      </ion-content>
+    </div>
 
   </ion-content>
 </ion-view>

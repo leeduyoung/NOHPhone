@@ -1,9 +1,18 @@
 angular.module('starter.controllers')
 
     .controller('ProfileCtrl', function ($scope, profileFactory, $ionicPopup, $state) {
-        
+
         // variable's
-        $scope.myProfile;
+        $scope.myProfileInfo;
+
+        $scope.profileSetting = [
+            { text: "내정보", value: "info" },
+            { text: "비밀번호 변경", value: "password" }
+        ];
+
+        $scope.data = {
+            profile: "내정보"
+        };
 
         $scope.$on("$ionicView.beforeEnter", function () {
 
@@ -16,8 +25,8 @@ angular.module('starter.controllers')
                     return;
                 }
                 else {
-                    $scope.myProfile = response.data[0].sess.member;
-                    console.log($scope.myProfile);
+                    $scope.myProfileInfo = response.data[0].sess.member;
+                    console.log($scope.myProfileInfo);
                 }
 
             }, function error(error) {

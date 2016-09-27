@@ -36,9 +36,9 @@
 }
 
 /* report-css */
-.myscore #circle_img{
+.myscore #circle_img_big{
     margin-top: 20px;
-    width: 30vw;
+    width: 60vw;
     height: auto;
     border-radius: 50%;
 }
@@ -49,4 +49,17 @@
     margin: 2px;
     color: white;
     padding: 10px;
+}
+
+/* profile-css */
+.profile_contents {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.profile #circle_img{
+    margin-top: 20px;
+    width: 30vw;
+    height: auto;
+    border-radius: 50%;
 }

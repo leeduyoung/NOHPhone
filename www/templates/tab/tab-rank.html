@@ -2,16 +2,18 @@
   <ion-nav-title>
     <div class="title-bar">
       <div class="button-bar period-bar">
-        <a class="button button-outline button-positive" ng-class="{'active' : period.text === data.period}" ng-click="data.period = period.text; getRank(period.value)"
+        <a class="button button-outline button-positive" ng-class="{'active' : period.text === data.period}" 
+          ng-click="data.period = period.text; getRank(period.value)"
           ng-repeat="period in periodList">{{period.text}}</a>
       </div>      
     </div>
   </ion-nav-title>
-  <ion-content class="padding" overflow-scroll="true">
+  <!--<ion-content class="padding" overflow-scroll="true">-->
+  <ion-content overflow-scroll="true">
 
-    <center>
+    <!--<center>
       <h4>핸드폰 사용시간 순위</h4>
-    </center>
+    </center>-->
 
     <div class="list card" ng-repeat="rank in rankList">
 
