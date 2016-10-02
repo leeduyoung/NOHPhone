@@ -51,7 +51,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       //로그인
       .state('login', {
         url: '/login',
-        templateUrl: 'templates/account/login.html'
+        templateUrl: 'templates/account/login.html',
+        controller: 'LoginCtrl'
       })
 
       //회원가입  

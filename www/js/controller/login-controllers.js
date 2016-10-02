@@ -1,6 +1,8 @@
 angular.module('starter.controllers')
 
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', function ($scope, $ionicHistory) {
 
-    console.log("ttt");
+    $scope.goBack = function () {
+      $ionicHistory.goBack();
+    }
   });
