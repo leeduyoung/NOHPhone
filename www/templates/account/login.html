@@ -1,10 +1,36 @@
-<ion-view view-title="Account-Login">
+<ion-view>
+  <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+      <i class="icon ion-ios-arrow-back"> Back</i> 
+    </button>
+  </ion-nav-buttons>
+  
+  <ion-nav-title>
+    <div class="nav-title">로그인</div>
+  </ion-nav-title>
+
   <ion-content>
-    login
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+    <form name="loginForm" ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">이메일(ID)</span>
+          <input name="email" type="email" placeholder="이메일(ID)" ng-model="loginData.username" 
+          ng-required="true">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">비밀번호</span>
+          <input type="password" placeholder="비밀번호 (8자 이상)" ng-model="loginData.password"
+          ng-required="true"
+          ng-minlength="8">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-disabled="loginForm.$invalid" type="submit">로그인 하기</button>
+        </label>
+      </div>
+    </form>
+    <div class="row">
+      <a href='#/app/signup' class="col text-left subdued">회원가입 하기</a>
+      <a href='#/app/forgotpass' class="col text-right subdued">비밀번호를 잊으셨나요?</a>
+    </div>
   </ion-content>
 </ion-view>

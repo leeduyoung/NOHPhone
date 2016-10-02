@@ -10,7 +10,32 @@ angular.module('starter')
             }); 
         }
 
+        function editProfile(member) {
+            return $http({
+                method: 'POST',
+                url: UrlsFactory.editProfile,
+                data: member,
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+        }
+
+        function changePassword(originPassword, currentPassword) {
+            var member = {member:{
+                oldPassword: originPassword,
+                newPassword: currentPassword
+            }};
+
+            return $http({
+                method: 'POST',
+                url: UrlsFactory.changePassword,
+                data: member,
+                headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+        }
+
         return {
-            getProfile : getProfile
+            getProfile : getProfile,
+            editProfile : editProfile,
+            changePassword : changePassword
         }
     });

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -14,7 +14,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
@@ -52,23 +51,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       //로그인
       .state('login', {
         url: '/login',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/account/login.html'
-          }
-        }
+        templateUrl: 'templates/account/login.html'
       })
 
-      //회원가입
+      //회원가입  
       .state('signUp', {
-        url: '/signup',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/account/signup.html',
-            controller: 'SignUpCtrl'
-          }
-        }
+        url: '/signUp',
+        templateUrl: 'templates/account/signUp.html'
       })
+
+      // 로그인
+      // .state('app.login', {
+      //   url: '/login',
+      //   views: {
+      //     'login': {
+      //       templateUrl: 'templates/account/login.html'
+      //     }
+      //   }
+      // })
+
+      //회원가입
+      // .state('app.signUp', {
+      //   url: '/signup',
+      //   views: {
+      //     'signup': {
+      //       templateUrl: 'templates/account/signup.html',
+      //       controller: 'SignUpCtrl'
+      //     }
+      //   }
+      // })
 
       .state('app.profile', {
         url: '/profile',
@@ -99,6 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
+
       .state('app.chat-detail', {
         url: '/chats/:chatId',
         views: {

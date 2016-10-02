@@ -59,6 +59,7 @@ angular.module('starter.controllers')
                 } 
                 else {
                     console.log("로그인 팝업창 닫기");
+                    $state.go('app.rank');
                 }
             })
         }

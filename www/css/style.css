@@ -58,31 +58,23 @@
 }
 
 .profile #circle_img{
-    margin-top: 20px;
+    margin-top: 4rem;
     width: 30vw;
     height: auto;
     border-radius: 50%;
 }
 
-.test {
-    font-size: 50px;
-    z-index: 1;
-}
-
-.test2 {
+.camera-1 {
     position: relative;
-    z-index: 2;
-    float: left;
-    font-size: 30px;
+    left: -2rem;
+    font-size: 3rem;
+    color: gray;
 }
 
-.test3 {
-    font-size: 50px;
-}
-
-.test4 {
+.camera-2 {
     position: relative;
-    font-size: 30px;
-    left: -34px;
+    font-size: 2rem;
+    left: -65px;
     top: -8px;
+    color: gray;
 }

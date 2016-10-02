@@ -3,8 +3,8 @@ angular.module('starter')
     .factory('UrlsFactory', function(){
 
         /* device 용 */
-        // var host = 'http://52.78.5.104:8081';
-        // var host = 'http://192.168.0.8:8081';
+        // var host = 'http://52.78.5.104:3000';
+        // var host = 'http://192.168.0.8:3000';
 
         /* web 용 */
         var host = '';
@@ -15,9 +15,13 @@ angular.module('starter')
             get_oneweek_rank: host + '/common/oneweek',
             get_total_rank: host + '/common/total',
 
-            // profile page에서 필요한 정보 조회
+            // rank page에서 필요한 정보 조회
             get_profile: host + '/users/profile',
-            get_report: host + '/users/report'
+            get_report: host + '/users/report',
+
+            // profile page에서 필요한 정보 조회
+            editProfile: host + '/users/profile/edit',
+            changePassword: host + '/users/password/change'
 
         }
 

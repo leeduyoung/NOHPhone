@@ -1,10 +1,79 @@
-<ion-view view-title="Account-Signup">
+<ion-view>
+  <ion-nav-title>
+    <div class="nav-title">회원가입</div>
+  </ion-nav-title>
+
   <ion-content>
-    회원가입
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+    <form ng-submit="doSignUp()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">이메일(ID)</span>
+          <input type="text" placeholder="이메일(ID)" ng-model="signupData.id"
+          ng-required="true"
+          ng-minlength="5">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">비밀번호 입력(최소 8자리 이상)</span>
+          <input type="password" placeholder="비밀번호" ng-model="signupData.password"
+          ng-required="true"
+          ng-minlength="8">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">비밀번호 재입력</span>
+          <input type="password" placeholder="비밀번호를 한번 더 입력해주세요." ng-model="signupData.password2"
+          ng-required="true"
+          ng-minlength="8">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">닉네임</span>
+          <input type="text" placeholder="닉네임" ng-model="signupData.nickName"
+          ng-required="true"
+          ng-minlength="1">
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">나이</span>
+          <input type="number" placeholder="나이" ng-model="signupData.age"
+          ng-required="true"
+          ng-maxlength="2">
+        </label>
+
+        <label class="item">
+          <span class="input-label">성별</span>
+        <ion-radio ng-model="signupData.gender" ng-value="0" ng-required="true">남성</ion-radio>
+        <ion-radio ng-model="signupData.gender" ng-value="1" ng-required="true">여성</ion-radio>
+        </label>
+
+        <div class="list card text-center">
+          <label class="item">
+            프로필 이미지
+          </label>
+          <div class="item item-image">
+            <img class="profile-image" ng-src="{{pictureUrl}}">
+          </div>
+          <div>
+            프로필 사진은 필수로 등록해야 하며, 본인 사진이 아니거나 얼굴 사진이 아닐경우 앱 이용에 불이익이 있을 수 있습니다.
+          </div>
+          <div class=" item text-center">
+            <button class="button button-positive" ng-click="takePicture()">사진 찍기</button>
+            <button class="button button-positive" ng-click="getImageFromGallery()">갤러리에서 가져오기</button>
+          </div>
+        </div>
+
+
+        <label class="item" ng-show="!passwordConfirm">
+          패스워드가 일치하지 않습니다.
+        </label>
+
+        <label class="item" ng-show="!pictureConfirm">
+          프로필 사진을 등록해주세요.
+        </label>
+
+        <label class="item">
+          <button class="button button-block button-positive" type=submit">회원가입 하기</button>
+        </label>
+      </div>
+    </form>
+
   </ion-content>
 </ion-view>
