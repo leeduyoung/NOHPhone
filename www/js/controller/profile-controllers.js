@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-    .controller('ProfileCtrl', function ($scope, profileFactory, $ionicPopup, $state, $ionicLoading, $cordovaToast) {
+    .controller('ProfileCtrl', function ($scope, ProfileFactory, DataFactory, $ionicPopup, $state, $ionicLoading, $cordovaToast) {
 
         // variable's
         var originNickname;
@@ -29,45 +29,50 @@ angular.module('starter.controllers')
             getProfile();
         });
 
-        function loginPopup() {
-            var confirmPopup = $ionicPopup.confirm({
-                title: '로그인 하시겠습니까?',
-                cancelText: '아니오',
-                okText: '예'
-            });
+        // function loginPopup() {
+        //     var confirmPopup = $ionicPopup.confirm({
+        //         title: '로그인 하시겠습니까?',
+        //         cancelText: '아니오',
+        //         okText: '예'
+        //     });
 
-            confirmPopup.then(function (response) {
-                if (response) {
-                    $state.go('login');
-                }
-                else {
-                    console.log("로그인 팝업창 닫기");
-                    $state.go('app.rank');
-                }
-            })
-        }
+        //     confirmPopup.then(function (response) {
+        //         if (response) {
+        //             $state.go('login');
+        //         }
+        //         else {
+        //             console.log("로그인 팝업창 닫기");
+        //             $state.go('app.rank');
+        //         }
+        //     })
+        // }
 
         function getProfile() {
             console.log("getProfile");
 
             $ionicLoading.show();
 
-            profileFactory.getProfile().then(function success(response) {
+            ProfileFactory.getProfile().then(function success(response) {
                 console.log(response.data);
 
                 $ionicLoading.hide();
 
-                if (typeof response.data[0].sess.member == 'undefined') {
-                    console.log("failed to session login");
-                    loginPopup();
-                    return;
-                }
-                else {
-                    $scope.myProfileInfo = response.data[0].sess.member;
-                    console.log($scope.myProfileInfo);
-                    originNickname = $scope.myProfileInfo.nick_name;
-                    console.log(originNickname);
-                }
+                // if (typeof response.data[0].sess.member == 'undefined') {
+                //     console.log("failed to session login");
+                //     loginPopup();
+                //     return;
+                // }
+                // else {
+                //     $scope.myProfileInfo = response.data[0].sess.member;
+                //     console.log($scope.myProfileInfo);
+                //     originNickname = $scope.myProfileInfo.nick_name;
+                //     console.log(originNickname);
+                // }
+
+                $scope.myProfileInfo = response.data[0].sess.member;
+                console.log($scope.myProfileInfo);
+                originNickname = $scope.myProfileInfo.nick_name;
+                console.log(originNickname);                
 
             }, function error(error) {
                 console.log("error");
@@ -98,7 +103,7 @@ angular.module('starter.controllers')
             console.log($scope.myProfileInfo);
             console.log($scope.myProfileInfo.nick_name);
 
-            profileFactory.editProfile($scope.myProfileInfo).then(function success(response) {
+            ProfileFactory.editProfile($scope.myProfileInfo).then(function success(response) {
                 
                 $ionicLoading.hide();
 
@@ -127,7 +132,7 @@ angular.module('starter.controllers')
             console.log($scope.password.oldPassword);
             console.log($scope.password.newPassword);
 
-            profileFactory.changePassword($scope.password.oldPassword, $scope.password.newPassword).then(function success(response) {
+            ProfileFactory.changePassword($scope.password.oldPassword, $scope.password.newPassword).then(function success(response) {
                 
                 $ionicLoading.hide();
                 

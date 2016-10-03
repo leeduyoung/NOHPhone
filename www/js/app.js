@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -34,7 +34,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'templates/tab/tabs.html'
+        templateUrl: 'templates/tab/tabs.html',
+        controller: 'TabCtrl'
       })
 
       // Each tab has its own nav history stack:
@@ -56,31 +57,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
 
       //회원가입  
-      .state('signUp', {
-        url: '/signUp',
-        templateUrl: 'templates/account/signUp.html'
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'templates/account/signup.html',
+        controller: 'SignupCtrl'
       })
 
-      // 로그인
-      // .state('app.login', {
-      //   url: '/login',
-      //   views: {
-      //     'login': {
-      //       templateUrl: 'templates/account/login.html'
-      //     }
-      //   }
-      // })
-
-      //회원가입
-      // .state('app.signUp', {
-      //   url: '/signup',
-      //   views: {
-      //     'signup': {
-      //       templateUrl: 'templates/account/signup.html',
-      //       controller: 'SignUpCtrl'
-      //     }
-      //   }
-      // })
+      //비밀번호 찾기
+      .state('forgotpassword', {
+        url: '/forgotpassword',
+        templateUrl: 'templates/account/forgotpassword.html',
+        controller: 'ForgotpasswordCtrl'
+      })      
 
       .state('app.profile', {
         url: '/profile',
@@ -98,26 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'tab-report': {
             templateUrl: 'templates/tab/tab-report.html',
             controller: 'ReportCtrl'
-          }
-        }
-      })
-
-      .state('app.chats', {
-        url: '/chats',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab/tab-chats.html',
-            controller: 'ChatsCtrl'
-          }
-        }
-      })
-
-      .state('app.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab/chat-detail.html',
-            controller: 'ChatDetailCtrl'
           }
         }
       })

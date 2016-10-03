@@ -1,6 +1,6 @@
 angular.module('starter')
 
-    .factory('rankFactory', function($http, UrlsFactory) {
+    .factory('RankFactory', function($http, UrlsFactory) {
         
         // 하루 순위 조회
         function getOneDayRank() {

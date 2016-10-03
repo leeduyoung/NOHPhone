@@ -10,11 +10,11 @@
   </ion-nav-title>
 
   <ion-content>
-    <form name="loginForm" ng-submit="doLogin()">
+    <form name="loginForm" ng-submit="login()">
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">이메일(ID)</span>
-          <input name="email" type="email" placeholder="이메일(ID)" ng-model="loginData.username" 
+          <input name="email" type="email" placeholder="이메일(ID)" ng-model="loginData.id" 
           ng-required="true">
         </label>
         <label class="item item-input item-floating-label">
@@ -29,8 +29,8 @@
       </div>
     </form>
     <div class="row">
-      <a href='#/app/signup' class="col text-left subdued">회원가입 하기</a>
-      <a href='#/app/forgotpass' class="col text-right subdued">비밀번호를 잊으셨나요?</a>
+      <a href='#/signup' class="col text-left subdued">회원가입 하기</a>
+      <a href='#/forgotpassword' class="col text-right subdued">비밀번호를 잊으셨나요?</a>
     </div>
   </ion-content>
 </ion-view>

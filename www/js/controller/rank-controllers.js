@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers')
 
-    .controller('RankCtrl', function ($scope, rankFactory) {
+    .controller('RankCtrl', function ($scope, RankFactory) {
 
         // variable's
         $scope.rankList;
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
         };
 
         $scope.$on("$ionicView.beforeEnter", function () {
-            rankFactory.getOneDayRank().then(function success(response) {
+            RankFactory.getOneDayRank().then(function success(response) {
                 console.log(response.data);
                 $scope.rankList = response.data;
             }, function error(error) {
@@ -32,7 +32,7 @@ angular.module('starter.controllers', [])
             console.log(period);
 
             if (period == 'one') {
-                rankFactory.getOneDayRank().then(function success(response) {
+                RankFactory.getOneDayRank().then(function success(response) {
                     console.log(response.data);
                     $scope.rankList = response.data;
                 }, function error(error) {
@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
                 });
             }
             else if (period == 'week') {
-                rankFactory.getOneWeekRank().then(function success(response) {
+                RankFactory.getOneWeekRank().then(function success(response) {
                     console.log(response.data);
                     $scope.rankList = response.data;
                 }, function error(error) {
@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
                 });
             }
             else {
-                rankFactory.getTotalRank().then(function success(response) {
+                RankFactory.getTotalRank().then(function success(response) {
                     console.log(response.data);
                     $scope.rankList = response.data;
                 }, function error(error) {

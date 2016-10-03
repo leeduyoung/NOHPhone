@@ -18,6 +18,7 @@ angular.module('starter')
             // rank page에서 필요한 정보 조회
             get_profile: host + '/users/profile',
             get_report: host + '/users/report',
+            login: host + '/users/signin',
 
             // profile page에서 필요한 정보 조회
             editProfile: host + '/users/profile/edit',

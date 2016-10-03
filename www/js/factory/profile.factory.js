@@ -1,6 +1,6 @@
 angular.module('starter')
 
-    .factory('profileFactory', function($http, UrlsFactory) {
+    .factory('ProfileFactory', function($http, UrlsFactory) {
 
         // 내 프로필 조회
         function getProfile() {

@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-    .controller('ReportCtrl', function ($scope, reportFactory, $ionicPopup, $state) {
+    .controller('ReportCtrl', function ($scope, ReportFactory, $ionicPopup, $state) {
 
         // variable's
         $scope.myProfile;
@@ -19,49 +19,63 @@ angular.module('starter.controllers')
         ]
 
         $scope.$on("$ionicView.beforeEnter", function () {
+            getReport();
+        });
 
-            reportFactory.getProfile().then(function success(response) {
+        function getReport() {
+            ReportFactory.getProfile().then(function success(response) {
                 console.log(response.data);
 
-                if (typeof response.data[0].sess.member == 'undefined') {
-                    console.log("failed to session login");
-                    loginPopup();
-                    return;
-                }
-                else {
-                    $scope.myProfile = response.data[0].sess.member;
-                    console.log($scope.myProfile);
+                // if (typeof response.data[0].sess.member == 'undefined') {
+                //     console.log("failed to session login");
+                //     loginPopup();
+                //     return;
+                // }
+                // else {
+                //     $scope.myProfile = response.data[0].sess.member;
+                //     console.log($scope.myProfile);
 
-                    reportFactory.getReport().then(function success(response) {
-                        console.log(response.data[0]);
-                        $scope.myReport = response.data[0];
+                //     ReportFactory.getReport().then(function success(response) {
+                //         console.log(response.data[0]);
+                //         $scope.myReport = response.data[0];
 
-                    }, function error(error) {
-                        console.log(error);
-                    });
-                }
+                //     }, function error(error) {
+                //         console.log(error);
+                //     });
+                // }
+
+                $scope.myProfile = response.data[0].sess.member;
+                console.log($scope.myProfile);
+
+                ReportFactory.getReport().then(function success(response) {
+                    console.log(response.data[0]);
+                    $scope.myReport = response.data[0];
+
+                }, function error(error) {
+                    console.log(error);
+                });
 
             }, function error(error) {
                 console.log(error);
             });
-        });
-
-        function loginPopup() {
-            var confirmPopup = $ionicPopup.confirm({
-                title: '로그인 하시겠습니까?',
-                cancelText: '아니오',
-                okText: '예'
-            });
-
-            confirmPopup.then(function (response) {
-                if(response) {
-                    $state.go('login');
-                } 
-                else {
-                    console.log("로그인 팝업창 닫기");
-                    $state.go('app.rank');
-                }
-            })
         }
+
+        // function loginPopup() {
+        //     var confirmPopup = $ionicPopup.confirm({
+        //         title: '로그인 하시겠습니까?',
+        //         cancelText: '아니오',
+        //         okText: '예'
+        //     });
+
+        //     confirmPopup.then(function (response) {
+        //         if(response) {
+        //             $state.go('login');
+        //         } 
+        //         else {
+        //             console.log("로그인 팝업창 닫기");
+        //             $state.go('app.rank');
+        //         }
+        //     })
+        // }
 
     });

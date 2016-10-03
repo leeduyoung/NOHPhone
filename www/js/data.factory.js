@@ -1,13 +1,14 @@
 angular.module('starter')
-    .factory('DataFactory', function(){
+    
+    .factory('DataFactory', function () {
 
         var loginedMember;
 
         return {
-            getLoginedMember : function (){
+            getLoginedMember: function () {
                 return loginedMember;
             },
-            setLoginedMember : function(member){
+            setLoginedMember: function (member) {
                 loginedMember = member;
             }
         }
